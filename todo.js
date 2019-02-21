@@ -1,6 +1,7 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
+var clearButton = document.getElementById("clearbutton");
 
 function inputValue(){
     return input.value
@@ -31,8 +32,12 @@ function checkItem(event){
         event.target.classList.toggle("done");
     }
 }
-function deleteItem(event){
+function deleteItem(){
     this.parentNode.parentNode.removeChild(this.parentNode);
+}
+function clearList(){
+    ul.innerHTML="";
 }
 button.addEventListener("click", addItemAfterClick);
 input.addEventListener("keypress", addItemAfterEnter);
+clearButton.addEventListener("click",clearList);
